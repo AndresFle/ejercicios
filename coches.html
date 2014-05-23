@@ -1,0 +1,44 @@
+<script> 
+function Car() {}
+
+Car.prototype.formaLinda = function() {
+    return this.marca + " cuesta " + this.price + " los colores disponibles son " + this.colores 
+}
+
+function ingresaColores() {
+	var cuantos = parseInt(prompt("cuantos colores desea ingresar?"))
+	var coloresDisp = []	
+	for(var i = 0; i<cuantos; i++) {
+		coloresDisp.push(prompt("ingrese color disponible"))
+	}
+	return coloresDisp
+}
+
+var coches = []
+var preguntar = true
+while(preguntar){
+	var opcion = prompt("ingrese opcion: 1-ingresar coche 2-imprimir todos los coches 3- ingresar marca y ver colores y precio 4- ingresar color y marca y ver si hay disponible")
+	if (opcion === "1") {
+        var coche = new Car()
+        coche.marca = prompt("ingrese modelo")
+        coche.price = prompt("ingrese precio del coche")
+        coche.colores = ingresaColores()
+        coches.push(coche)
+        alert(coche.formaLinda())
+	} else if (opcion === "2") { 
+        var imprimir = "" 
+        for(var i=0; i<coches.length; i++) {
+            imprimir += (coches[i].formaLinda() + "\n") 
+        }
+        alert(imprimir)
+         //opcion 3: ingresar una marca y te dice los colores disponibles y precio      
+        //opcion 4: dice si existe un color para ese marca o no..
+	} else { 
+	
+		alert("ingrese una opcion valida")
+
+		preguntar = false   
+    }
+}
+
+</script>
