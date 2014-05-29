@@ -32,20 +32,22 @@ while(preguntar){
         }
         alert(imprimir)
         
-         } else if  (opcion === "3") {
-        	var eleccion prompt("ingrese marca para ver precio y colores disponibles") 
-        					 for (var i=0; i < coches.length ; i++) {
-        					     if (eleccion === coche.marca) {
-        							alert("Precio es " + coche.precio + " y Colores disponibles son " + coche.colores)
+   } else if  (opcion === "3") {
+        var eleccion = prompt("ingrese marca para ver precio y colores disponibles") 
+ 		  for (var i=0; i < coches.length ; i++) {
+ 		  		var auto = coches[i]	
+				if (eleccion === auto.marca) {
+        			alert("Precio es " + auto.price + " y Colore/s disponible/s son " + auto.colores)
         //opcion 4: dice si existe un color para ese marca o no..
-                      } 
-                          }
-         } else { 
+            } 
+        }
+    
+    } else { 
 	
 		alert("ingrese una opcion valida")
 
 		preguntar = false   
    
-        }
-
+    }
+}
 </script>
