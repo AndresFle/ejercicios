@@ -1,28 +1,67 @@
+<body>
+<div class="wrapper">
+
+<h1 id="humanName"></h1>
+<div id="computerLife"></div>
+<button onClick = "human.attack(computer); show(computer)">
+Atacar
+</button>
+	
+
+<style>
+
+body {
+background-color: lightblue;
+text-align: center;
+}
+h1 {
+color: orange;
+font-family: sans-serif;
+}
+
+button {
+color: blue;
+background-color: white;
+font-family: sans-serif;
+}
+
+.wrapper {
+width: 920px;
+display: inline-block;
+text-align: left;
+
+}
+
+</style>
+
 <script>
 
 
-function attack(otherPlayer) {
-	 otherplayer.force = - 5
-
+function Player(playerName, playerPower, playerLife) {
+	this.name = playerName
+	this.force = playerPower
+	this.life = playerLife
 }
 
-function player (playerName, playerPower, playerLife) {
-this.name = playerName
-this.force = playerPower
-this.life = playerLife
+Player.prototype.attack = function (otherPlayer) {
+		otherPlayer.life -= this.force
+}
+var userName = prompt("ingrese nombre")
+
+var human = new Player(userName, 10, 100)
+document.getElementById("humanName").innerHTML = human.name
+
+var computer = new Player("pc", 15, 100)
+
+
+
+function show(computer) {
+	//human.attack(computer)	
+	document.getElementById("computerLife").innerHTML = "vida de la computadora " + computer.life
 }
 
-
-var player = new Human ("andy", 10, 100)
-
-var player = new Computer ("pc", 15, 100)
-
-
-alert(andy)
-
-pc.attack(andy)
-
-alert(andy)
-
+show(computer)
 
 </script>
+</div>
+</body>
